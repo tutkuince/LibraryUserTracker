@@ -9,14 +9,14 @@ import java.util.Properties;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class JDBCUtil {
-	private Properties settings = new Properties();
+	private static Properties settings = new Properties();
 
 	private static String url;
 	private static String username;
 	private static String password;
 	
-	{	// instance initializer
-		InputStream in = this.getClass().getClassLoader().getResourceAsStream("com/usertracker/properties/jdbc.properties");
+	static {	// static initializer
+		InputStream in = JDBCUtil.class.getClassLoader().getResourceAsStream("com/usertracker/properties/jdbc.properties"); 
 
 		try {
 			
@@ -28,10 +28,9 @@ public class JDBCUtil {
 		url = settings.getProperty("url");
 		username = settings.getProperty("username");
 		password = settings.getProperty("password");
-		
 	}
 	
-	public synchronized Connection getConnection() {
+	public static synchronized Connection getConnection() {
 		MysqlDataSource dataSource = new MysqlDataSource();
 		dataSource.setURL(url);
 		dataSource.setUser(username);
