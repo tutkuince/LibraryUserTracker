@@ -19,7 +19,7 @@ public class UserDAO implements GenericDAO<User> {
 
 	@Override
 	public void insert(User entity) {
-		conn = new JDBCUtil().getConnection();
+		conn = JDBCUtil.getConnection();
 
 		try {
 			pstmt = conn.prepareStatement("insert into user(first_name, last_name, email) values(?, ?, ?)");
@@ -38,7 +38,7 @@ public class UserDAO implements GenericDAO<User> {
 
 	@Override
 	public void delete(int id) {
-		conn = new JDBCUtil().getConnection();
+		conn = JDBCUtil.getConnection();
 		
 		try {
 			pstmt = conn.prepareStatement("delete from user where id=?");
@@ -55,7 +55,7 @@ public class UserDAO implements GenericDAO<User> {
 
 	@Override
 	public void update(User entity) {
-		conn = new JDBCUtil().getConnection();
+		conn = JDBCUtil.getConnection();
 		
 		try {
 			pstmt = conn.prepareStatement("update user set first_name=?, last_name=?, email=? where id=?");
@@ -76,7 +76,7 @@ public class UserDAO implements GenericDAO<User> {
 	@Override
 	public User getById(int id) {
 		User user = null;
-		conn = new JDBCUtil().getConnection();
+		conn = JDBCUtil.getConnection();
 
 		try {
 			pstmt = conn.prepareStatement("select * from user where id= ?");
@@ -102,7 +102,7 @@ public class UserDAO implements GenericDAO<User> {
 	@Override
 	public List<User> getAll() {
 		List<User> userList = new ArrayList<>();
-		conn = new JDBCUtil().getConnection();
+		conn = JDBCUtil.getConnection();
 
 		try {
 			pstmt = conn.prepareStatement(GET_ALL_USER);
