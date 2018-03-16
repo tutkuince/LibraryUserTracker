@@ -15,6 +15,10 @@ public class JDBCUtil {
 	private static String username;
 	private static String password;
 	
+	private JDBCUtil() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	static {	// static initializer
 		InputStream in = JDBCUtil.class.getClassLoader().getResourceAsStream("com/usertracker/properties/jdbc.properties"); 
 
