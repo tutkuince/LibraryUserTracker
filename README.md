@@ -21,7 +21,7 @@ There are 6 layers in this project:
     <b>Test</b> layer for unit tests.
   </li>
   <li>
-    <b>Util<b/> layer contains JDBCUtil class that helps us to get Connection object with Singleton Design Pattern.
+    <b>Util</b> layer contains JDBCUtil class that helps us to get Connection object with Singleton Design Pattern.
   </li>
 </ul>
 
